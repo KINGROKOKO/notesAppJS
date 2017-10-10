@@ -5,17 +5,17 @@ function testNoteIsCreated() {
 
  testNoteIsCreated();
 
- function noteListCreated() {
-   var noteList = new NoteList();
-   assert.isTrue(noteList.notes[0]=== 'note');
- };
-
- noteListCreated();
+ // function noteListCreated() {
+ //   var noteList = new NoteList();
+ //   assert.isTrue(noteList.notes[0]=== 'note');
+ // };
+ //
+ // noteListCreated();
 
  function testNewNoteInNotelist() {
    var noteList = new NoteList();
    noteList.newNote('hi');
-   assert.isTrue(noteList.notes[1].text === 'hi');
+   assert.isTrue(noteList.notes[0].text === 'hi');
  };
 
  testNewNoteInNotelist();
