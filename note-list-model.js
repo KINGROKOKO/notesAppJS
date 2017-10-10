@@ -6,7 +6,12 @@
   NoteList.prototype.newNote = function(text){
     this.notes.push(new Note(text));
   };
-  exports.newNote = this.newNote;
+
+  NoteList.prototype.showNotes = function(){
+    for (var i = 0; i < this.notes.length; i++) {
+        console.log(this.notes[i].text);
+     };
+   };
   exports.NoteList = NoteList;
 
 })(this);
