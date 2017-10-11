@@ -1,20 +1,20 @@
 (function(exports){
-function noteDisplay(noteList = new NoteList()){
+function noteController(noteList = new NoteList()){
   this.noteList = noteList
-  this.noteList.newNote('hiti')
+  this.noteList.newNote('hi')
   this.viewing = new ViewingList(this.noteList)
 };
 
- noteDisplay.prototype.show = function(){
+ noteController.prototype.show = function(){
   var list = this.viewing.view();
   var item = document.getElementById('app');
   item.innerHTML = list;
 };
 
-noteDisplay.prototype.archive = function(){
+noteController.prototype.archive = function(){
  return this.noteList.notes
 };
-  exports.noteDisplay = noteDisplay;
+  exports.noteController = noteController;
 })(this);
 
 

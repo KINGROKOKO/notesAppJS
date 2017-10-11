@@ -1,3 +1,4 @@
+window.onload = function(){
 function testNoteIsCreated() {
   var note = new Note('hi');
   assert.isTrue(note.text === 'hi');
@@ -24,8 +25,46 @@ function testNoteIsCreated() {
 
  testNotesReturned();
 
- function testNoNoteToDisplay() {
+   function testNoNoteToDisplay() {
    var noteList = new NoteList();
    var listView = new ViewingList(noteList);
    assert.isTrue(listView.view() === "There are no notes to display");
+ };
+
+ function testNewController() {
+   var controller = new noteController();
+   assert.isTrue(controller.noteList.notes[0].text === "hi");
+ };
+
+ testNewController()
+
+ function testHTMLOutput(){
+   var NoteListDouble = {
+     newNote: function() {}
+ };
+
+  var text = 'hey man'
+  var ViewingListDouble = {
+    view: function() {return text}
+  };
+
+ var controller = new noteController(NoteListDouble);
+ controller.viewing = ViewingListDouble
+ controller.show();
+ assert.isTrue(document.getElementById('app').innerHTML === text);
+ };
+
+ testHTMLOutput()
+
+ function testingSingleNoteView() {
+
+    var noteDouble = {
+     text: 'hi'
+   }
+   var singleNote = new SingleNote(noteDouble);
+   console.log(singleNote.view())
+   assert.isTrue(singleNote.view() === "<div>hi</div>");
+ };
+
+ testingSingleNoteView()
  };
