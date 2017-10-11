@@ -5,13 +5,6 @@ function testNoteIsCreated() {
 
  testNoteIsCreated();
 
- // function noteListCreated() {
- //   var noteList = new NoteList();
- //   assert.isTrue(noteList.notes[0]=== 'note');
- // };
- //
- // noteListCreated();
-
  function testNewNoteInNotelist() {
    var noteList = new NoteList();
    noteList.newNote('hi');
@@ -30,3 +23,9 @@ function testNoteIsCreated() {
  };
 
  testNotesReturned();
+
+ function testNoNoteToDisplay() {
+   var noteList = new NoteList();
+   var listView = new ViewingList(noteList);
+   assert.isTrue(listView.view() === "There are no notes to display");
+ };
